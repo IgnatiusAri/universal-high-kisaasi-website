@@ -1,20 +1,70 @@
-/* 
-   Universal High School Kisaasi website
-   Stylesheet 
-   */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-/* 1. VARIABLES (colours, fonts, spacing) */
+body {
+  margin: 0;
+}
 
-/* 2. RESET AND BASE */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
 
-/* 3. HEADER AND NAVIGATION */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #F7F8F5;
+  border-top: 6px solid #205B42;
+  border-bottom: 4px solid #ECE42C;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
 
-/* 4. HERO */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
 
-/* 5. CARDS AND BUTTONS */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #205B42;
+  text-decoration: none;
+}
 
-/* 6. SECTIONS */
+.logo img {
+  width: 44px;
+  height: 44px;
+}
 
-/* 7. FOOTER */
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
 
-/* 8. RESPONSIVE (media queries) */
+.menu-button {
+  padding: 10px 8px;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 5px 0;
+  background: #205B42;
+}
