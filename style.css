@@ -1,17 +1,46 @@
+ /* Universal High School Kisaasi website
+   Single stylesheet for all pages
+   Mobile first: written for a 360 px phone, then enlarged
+   with media queries for tablets and desktops.
+   Author: Arinaitwe Ignatius */
+
+   /* Make padding and borders count inside an element's width,
+   so a box set to 300 px stays 300 px wide. Without this,
+   padding is added on top and layouts break unpredictably. */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/* remove the browser default margin */
 body {
   margin: 0;
 }
-
+/* Centred page container.
+   max-width stops content stretching too wide on big screens.
+   margin: 0 auto splits the leftover space equally left and
+   right, which centres the box.
+   padding keeps text 16 px away from a phone's screen edge. */
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 16px;
+}
+
+
+/* Page at least as tall as the screen; stack header, main, footer */
+body {
+  margin: 0;
+  min-height: 100vh;   /* fallback for older browsers */
+  min-height: 100dvh;  /* accurate on phones with moving address bars */
+  display: flex;
+  flex-direction: column;
+}
+
+/* main takes all spare height, pushing the footer down */
+main {
+  flex: 1;
 }
 
 .site-header {
@@ -68,3 +97,150 @@ body {
   margin: 5px 0;
   background: #205B42;
 }
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
+/* Footer box: green background, white text, yellow top line */
+.site-footer {
+  margin-top: 32px;
+  padding-top: 32px;
+  background: #205B42;
+  color: #FFFFFF;
+  border-top: 4px solid #ECE42C;
+}
+
+/* Stack the footer sections with equal gaps (phone layout) */
+.site-footer .container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* "Apply today" and "Find us": stacked buttons */
+.footer-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Yellow button with the label left and an arrow right */
+.footer-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: #ECE42C;
+  color: #17432F;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Arrow drawn with CSS, no image needed */
+.footer-action::after {
+  content: "\25B8";
+}
+
+/* Hover and keyboard focus: white button, bigger shadow */
+.footer-action:hover,
+.footer-action:focus {
+  background: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Pressed: sink slightly */
+.footer-action:active {
+  transform: translateY(2px);
+}
+
+/* Student photo: full width, rounded, yellow border */
+.footer-about img {
+  width: 100%;
+  height: auto;
+  border: 3px solid #ECE42C;
+  border-radius: 8px;
+}
+
+/* Sentence under the photo */
+.footer-about p {
+  margin: 12px 0 0;
+}
+
+/* Section headings: yellow, with a short bar in front */
+.site-footer h2 {
+  margin: 0 0 8px;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  color: #ECE42C;
+}
+
+.site-footer h2::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 3px;
+  margin-right: 8px;
+  background: #ECE42C;
+  vertical-align: middle;
+}
+
+/* Remove bullets and default spacing from footer lists */
+.site-footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Address: upright text, not italic */
+.site-footer address {
+  margin: 8px 0;
+  font-style: normal;
+}
+
+/* Footer links: white, with room for a thumb */
+.site-footer a {
+  display: inline-block;
+  padding: 6px 0;
+  color: #FFFFFF;
+}
+
+.site-footer a:hover,
+.site-footer a:focus {
+  color: #ECE42C;
+}
+
+/* Logo and social links on one row */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-brand img {
+  width: 56px;
+  height: 56px;
+}
+
+/* Social links side by side */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+/* Copyright bar: darker green strip, centred text */
+.copyright {
+  margin: 24px 0 0;
+  padding: 16px;
+  background: #17432F;
+  text-align: center;
+}
+
+/* Developer credit link: yellow */
+.copyright a {
+  color: #ECE42C;
+}
+ 
