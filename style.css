@@ -41,7 +41,7 @@ body {
 /* main takes all spare height, pushing the footer down */
 main {
   flex: 1;
-}
+}  
 
 .site-header {
   position: sticky;
@@ -199,6 +199,24 @@ main {
   margin: 8px 0;
   font-style: normal;
 }
+/* ----- Footer: Reach us ----- */
+
+/* Spacing between phone numbers */
+.footer-contact .contact-list li {
+  margin-bottom: 4px;
+}
+
+/* Address: browsers italicise <address> by default */
+.footer-contact address {
+  margin: 12px 0;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+/* Long email addresses wrap instead of overflowing small screens */
+.footer-contact .contact-email {
+  overflow-wrap: anywhere;
+}
 
 /* Footer links: white, with room for a thumb */
 .site-footer a {
@@ -216,12 +234,14 @@ main {
 .footer-brand {
   display: flex;
   align-items: center;
+  flex-direction: column;
   gap: 16px;
 }
 
 .footer-brand img {
   width: 56px;
   height: 56px;
+  border-radius: 8px;
 }
 
 /* Social links side by side */
@@ -229,6 +249,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 16px;
+  justify-content: center;
 }
 
 /* Copyright bar: darker green strip, centred text */
