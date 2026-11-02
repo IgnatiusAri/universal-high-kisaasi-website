@@ -98,6 +98,52 @@ main {
   background: #205B42;
 }
 
+/* ----- Breadcrumb ----- */
+
+/* Slim bar under the sticky header */
+.breadcrumb {
+  background: #FFFFFF;
+  border-bottom: 0.0625rem solid #D5DDD7;
+}
+
+/* Reset list defaults; items sit in a row that wraps */
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Separator drawn in CSS before every item except the first */
+.breadcrumb li + li::before {
+  content: "\203A";
+  margin: 0 0.5rem;
+  color: #5F6F66;
+}
+
+/* Link and current page share vertical padding for a thumb-sized target */
+.breadcrumb a,
+.breadcrumb [aria-current="page"] {
+  display: inline-block;
+  padding: 0.5rem 0;
+}
+
+.breadcrumb a {
+  color: #205B42;
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:focus {
+  color: #DA3C2F;
+}
+
+/* Current page: bold, not a link */
+.breadcrumb [aria-current="page"] {
+  font-weight: 700;
+  color: #17432F;
+}
+
 /* ==========================================================
    FOOTER
    ========================================================== */
