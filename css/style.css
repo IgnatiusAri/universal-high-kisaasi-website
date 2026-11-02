@@ -2,6 +2,8 @@
    Single stylesheet for all pages
    Mobile first: written for a 360 px phone, then enlarged
    with media queries for tablets and desktops.
+   Lives in css/: url() paths are relative to this file, so images
+   are referenced as ../images/.
    Author: Arinaitwe Ignatius */
 
    /* Make padding and borders count inside an element's width,
@@ -230,8 +232,7 @@ main {
 /* ----- Home: hero ----- */
 
 /* Photo with a green overlay for text contrast. The gradient is
-   listed first so it paints above the image. The image path is
-   relative to this stylesheet. */
+   listed first so it paints above the image. */
 .hero {
   position: relative;               /* anchor for the absolute badge */
   display: flex;
@@ -245,7 +246,7 @@ main {
   color: #FFFFFF;
   background:
     linear-gradient(rgba(23, 67, 47, 0.55), rgba(23, 67, 47, 0.85)),
-    url("images/hero-photo.jpeg") center / cover no-repeat;
+    url("../images/hero-photo.jpeg") center / cover no-repeat;
 }
 
 /* text-shadow keeps the heading readable over bright areas */
@@ -501,16 +502,14 @@ main {
    Shared by all inner pages (keep it page-agnostic).
    Shorter variant of .hero. Overlay is darker than the hero's
    because there are no buttons and the text must read over any
-   part of the photo.
-   Image path is relative to this file: if the stylesheet moves to
-   css/, change it to ../images/. */
+   part of the photo. */
 .page-banner {
   padding: 3rem 0;
   color: #FFFFFF;
   text-align: center;
   background:
     linear-gradient(rgba(23, 67, 47, 0.75), rgba(23, 67, 47, 0.9)),
-    url("images/students.jpeg") center / cover no-repeat;
+    url("../images/students.jpeg") center / cover no-repeat;
   border-bottom: 0.25rem solid #ECE42C;
 }
 
