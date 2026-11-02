@@ -38,6 +38,25 @@ body {
   flex-direction: column;
 }
 
+/* ----- Typography -----
+   Fonts are loaded by the Google Fonts <link> in each page's <head>.
+   Loaded weights: Montserrat 700; Open Sans 400, 600, 700. Using any
+   other weight here needs the link updated on every page.
+   Fallbacks apply if Google Fonts is blocked or still loading. */
+body {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 1rem;      /* 16 px minimum body size */
+  line-height: 1.6;
+  color: #1F2A24;       /* near-black green: softer than #000 */
+}
+
+/* Default for every heading; component rules may still repeat it */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
 /* main takes all spare height, pushing the footer down */
 main {
   flex: 1;
