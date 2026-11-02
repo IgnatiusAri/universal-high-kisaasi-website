@@ -265,3 +265,53 @@ main {
   color: #ECE42C;
 }
  
+
+/* ==========================================================
+   RESPONSIVE: tablet and desktop (min-width: 768px)
+   Base styles above target a 360 px phone. Rules here override
+   them on wider screens, so keep this block last in the file.
+   ========================================================== */
+@media (min-width: 768px) {
+
+  /* Hero: taller, larger heading */
+  .hero {
+    min-height: 520px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  /* Feature cards: three equal columns */
+  .card-grid {
+    flex-direction: row;
+  }
+
+  .card {
+    flex: 1;
+  }
+
+  /* Footer: sections side by side, wrapping when space runs out */
+  .site-footer .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .site-footer .container > * {
+    flex: 1 1 220px;
+  }
+
+  /* Action buttons and brand block each take a full row */
+  .site-footer .footer-actions {
+    flex-basis: 100%;
+    flex-direction: row;
+  }
+
+  .site-footer .footer-action {
+    flex: 1;
+  }
+
+  .site-footer .container > .footer-brand {
+    flex-basis: 100%;
+  }
+}
