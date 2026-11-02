@@ -357,7 +357,8 @@ main {
   border-top-color: #DA3C2F;
 }
 
-/* Round green badge holding the icon */
+/* Round icon badge. Flexbox centres the glyph at any font size.
+   Applied to a span so Font Awesome's own display rules don't interfere. */
 .card-icon {
   display: flex;
   align-items: center;
@@ -494,41 +495,40 @@ main {
 }
 
 /* "Apply today" and "Find us": stacked buttons */
-.footer-actions {
+
+.site-footer .footer-actions {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
-/* Yellow button with the label left and an arrow right */
-.footer-action {
+.site-footer .footer-action {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 16px;
+  padding: 0.875rem 1rem;
   background: #ECE42C;
   color: #17432F;
   font-weight: 700;
   text-decoration: none;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 0.375rem;
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.3);
 }
 
-/* Arrow drawn with CSS, no image needed */
-.footer-action::after {
+/* Arrow drawn in CSS */
+.site-footer .footer-action::after {
   content: "\25B8";
 }
 
-/* Hover and keyboard focus: white button, bigger shadow */
-.footer-action:hover,
-.footer-action:focus {
+/* Hover and keyboard focus: white button, text colour kept dark */
+.site-footer .footer-action:hover,
+.site-footer .footer-action:focus {
   background: #FFFFFF;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  color: #17432F;
 }
 
-/* Pressed: sink slightly */
-.footer-action:active {
-  transform: translateY(2px);
+.site-footer .footer-action:active {
+  transform: translateY(0.125rem);
 }
 
 /* Student photo: full width, rounded, yellow border */
@@ -646,24 +646,30 @@ main {
    Base styles above target a 360 px phone. Rules here override
    them on wider screens, so keep this block last in the file.
    ========================================================== */
-@media (min-width: 768px) {
-
-  /* Hero: taller, larger heading */
+@media (min-width: 48em) {
+    /* Home: taller hero and larger heading */
   .hero {
-    min-height: 520px;
+    min-height: 32.5rem;
   }
 
   .hero h1 {
     font-size: 2.5rem;
   }
 
-  /* Feature cards: three equal columns */
+  /* Home: three equal card columns */
   .card-grid {
     flex-direction: row;
   }
 
   .card {
     flex: 1;
+  }
+
+  /* Home: band text left, buttons right */
+  .band-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 
   /* Footer: sections side by side, wrapping when space runs out */

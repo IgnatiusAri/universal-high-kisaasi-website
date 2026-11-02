@@ -7,6 +7,8 @@
     <meta name="description" content="Universal High School-Kisaasi is a leading educational institution committed to providing quality education and fostering holistic development in students.">
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
+    <!-- Icons: Font Awesome Free (credit in README) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
       <header class="site-header"> 
@@ -40,7 +42,136 @@
 </nav>
 
 <main id="main">
-  <h1>Universal High School Kisaasi</h1>   <!-- temporary -->
+
+  <!-- 1. Hero
+       Full-width photo with an overlay (CSS). Badge is positioned
+       against the hero box. -->
+  <section class="hero">
+    <p class="badge">Admissions open</p>
+
+    <div class="hero-content">
+      <h1>Universal High School Kisaasi</h1>
+      <p class="tagline">Struggle for the bright future</p>
+    </div>
+
+    <div class="hero-buttons">
+      <a class="btn btn-primary" href="services.html#apply">Apply now</a>
+      <a class="btn btn-secondary" href="https://wa.me/256701835624?text=Hello%2C%20I%20would%20like%20to%20ask%20about%20admissions.">WhatsApp</a>
+      <a class="btn btn-secondary" href="tel:+256701835624">Call</a>
+    </div>
+  </section>
+
+  <!-- 2. Introduction
+       Text adapted from the school's vision, mission, values and
+       commitment statements (admission requirement forms). -->
+  <section class="intro">
+    <div class="container">
+      <h2>Welcome to Universal High School Kisaasi</h2>
+      <p>We are a day and boarding secondary school in Kisaasi, Kampala,
+         offering O-level and A-level education. Our approach is
+         learner-centred: we embrace every student's uniqueness and
+         help them discover who they are.</p>
+      <p>Our vision is to guide each learner to become a leader who
+         transforms society. We are committed to providing the best
+         education in an environment that supports that journey.</p>
+
+      <h3 class="values-title">Our values</h3>
+      <ul class="values">
+        <li>God fearing</li>
+        <li>Integrity</li>
+        <li>Hard work</li>
+        <li>Creativity</li>
+        <li>Excellence</li>
+        <li>Focus</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. Feature cards
+       Each link goes to the page holding the full details. -->
+  <section class="featured">
+    <div class="container">
+      <h2>What we offer</h2>
+
+      <div class="card-grid">
+        <article class="card">
+          <span class="card-icon" aria-hidden="true">
+          <i class="fa-solid fa-graduation-cap card-icon" aria-hidden="true"></i>
+          </span>
+          <h3>Academics</h3>
+          <p>O-level and A-level teaching in a learner-centred
+             environment, with daily lessons and preps.</p>
+          <a class="card-link" href="services.html">Learn more</a>
+        </article>
+
+        <article class="card">
+          <span class="card-icon" aria-hidden="true"> 
+          <i class="fa-solid fa-building card-icon" aria-hidden="true"></i>
+          </span>
+          <h3>Facilities</h3>
+          <p>A library, laboratories, dormitories and a sick bay, for
+             day and boarding students.</p>
+          <a class="card-link" href="gallery.html">Learn more</a>
+        </article>
+
+        <article class="card">
+          <span class="card-icon" aria-hidden="true">
+          <i class="fa-solid fa-trophy card-icon" aria-hidden="true"></i>
+          </span>
+          <h3>Student life</h3>
+          <p>Sports, prayers and weekend entertainment, guided by values
+             such as integrity and hard work.</p>
+          <a class="card-link" href="about.html">Learn more</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Opening hours
+       TODO: replace bracketed times with hours confirmed by the
+       school. Reporting-day time is from the school's rules. -->
+  <section class="hours">
+    <div class="container">
+      <h2><i class="fa-regular fa-clock" aria-hidden="true"></i> Opening hours</h2>
+
+      <dl class="hours-list">
+        <div class="hours-row">
+          <dt>Monday to Friday</dt>
+          <dd>[Office hours]</dd>
+        </div>
+        <div class="hours-row">
+          <dt>Saturday</dt>
+          <dd>[Office hours]</dd>
+        </div>
+        <div class="hours-row">
+          <dt>Sunday (visiting day)</dt>
+          <dd>[Visiting hours]</dd>
+        </div>
+        <div class="hours-row">
+          <dt>Reporting day each term</dt>
+          <dd>8:30 am to 6:00 pm</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 5. Admissions call-to-action
+       Targets #apply and #fees on services.html (add those ids there). -->
+  <section class="admissions-band">
+    <div class="container band-inner">
+      <div class="band-text">
+        <h2>Admissions are open</h2>
+        <p>Join us as a day or boarding student, in O-level or A-level.</p>
+      </div>
+      <div class="band-actions">
+        <a class="btn btn-accent" href="services.html#apply">Apply now</a>
+        <a class="btn btn-secondary" href="services.html#fees">View fees</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Testimonials: to be added later -->
+
 </main>
 
 <!-- ==========================================================
