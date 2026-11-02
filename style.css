@@ -226,7 +226,7 @@ main {
   color: #FFFFFF;
   background:
     linear-gradient(rgba(23, 67, 47, 0.55), rgba(23, 67, 47, 0.85)),
-    url("../images/students.jpeg") center / cover no-repeat;
+    url("images/students.jpeg") center / cover no-repeat;
 }
 
 /* text-shadow keeps the heading readable over bright areas */
