@@ -475,6 +475,146 @@ main {
 }
 
 /* ==========================================================
+   INNER PAGES (About, Programmes, Gallery, Contact)
+   ========================================================== */
+
+/* ----- Page banner -----
+   Shared by every inner page, so it is not called "about-banner".
+   Same recipe as the home hero (photo + green overlay) but shorter:
+   inner pages should get visitors to the content quickly.
+   Uses students.jpeg so it doesn't repeat the home hero photo.
+   Image path is relative to this stylesheet (both in the site root). */
+.page-banner {
+  padding: 3rem 0;
+  color: #FFFFFF;
+  text-align: center;
+  background:
+    linear-gradient(rgba(23, 67, 47, 0.75), rgba(23, 67, 47, 0.9)),
+    url("images/students.jpeg") center / cover no-repeat;
+  border-bottom: 0.25rem solid #ECE42C;   /* yellow line, like the header */
+}
+
+.page-banner h1 {
+  margin: 0 0 0.5rem;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  text-shadow: 0.0625rem 0.125rem 0.25rem rgba(0, 0, 0, 0.6);
+}
+
+/* max-width + auto margins keep the line short and centred */
+.page-banner-text {
+  max-width: 40ch;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #ECE42C;
+}
+
+/* ----- Shared section styles -----
+   Every content block on inner pages uses .section and
+   .section-title, so spacing and headings stay identical
+   without repeating the same rules for each section. */
+.section {
+  padding: 2.5rem 0;
+}
+
+/* Alternate sections get a white background so the page reads as
+   clear bands instead of one long block. Add .section-white in
+   the HTML wherever a white band is wanted. */
+.section-white {
+  background: #FFFFFF;
+}
+
+.section-title {
+  margin: 0 0 1rem;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  color: #205B42;
+}
+
+/* ----- About: our story ----- */
+
+/* Phone: story above facts, with a gap between them */
+.story-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* No max-width on these paragraphs: a capped paragraph would
+   stop short of the floated image and leave an odd gap. */
+.story-text p {
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+
+/* Phone: the photo sits full width above the text. A floated
+   photo at 360 px would leave a text column too narrow to read. */
+.story-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border: 0.1875rem solid #ECE42C;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+/* Clearfix: a floated child doesn't add to its parent's height.
+   This invisible ::after box sits after all the content and
+   "clears" (drops below) any float, so the parent grows to
+   contain the image. Reusable on any box with floats inside. */
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* Facts box: white card with a yellow edge, like the home cards */
+.quick-facts {
+  padding: 1.25rem;
+  background: #FFFFFF;
+  border-left: 0.25rem solid #ECE42C;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.12);
+}
+
+.quick-facts h3 {
+  margin: 0 0 0.5rem;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  color: #205B42;
+}
+
+.quick-facts dl {
+  margin: 0;
+}
+
+/* One label/value pair per row, hairline between rows */
+.fact {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.625rem 0;
+  border-bottom: 0.0625rem solid #D5DDD7;
+}
+
+.fact:last-child {
+  border-bottom: 0;
+}
+
+.fact dt {
+  font-weight: 600;
+  color: #205B42;
+}
+
+/* Browsers indent dd by default */
+.fact dd {
+  margin: 0;
+  text-align: right;
+}
+
+/* ==========================================================
    FOOTER
    ========================================================== */
 
@@ -654,6 +794,42 @@ main {
 
   .hero h1 {
     font-size: 2.5rem;
+  }
+
+  /* Inner pages: more breathing room and a bigger title */
+  .page-banner {
+    padding: 4.5rem 0;
+  }
+
+  .page-banner h1 {
+    font-size: 2.25rem;
+  }
+
+  /* About: story and quick facts side by side.
+     The story grows to fill the space (flex: 2); the facts box
+     keeps a fixed, readable width (flex: 0 0 18rem).
+     align-items: flex-start stops the box stretching to the
+     story's height. */
+  .story-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2.5rem;
+  }
+
+  .story-text {
+    flex: 2;
+  }
+
+  /* Float the photo left: the paragraphs flow down its right side,
+     then return to full width below it. */
+  .story-image {
+    float: left;
+    width: 45%;
+    margin: 0.25rem 1.5rem 1rem 0;   /* space between photo and text */
+  }
+
+  .quick-facts {
+    flex: 0 0 18rem;
   }
 
   /* Home: three equal card columns */

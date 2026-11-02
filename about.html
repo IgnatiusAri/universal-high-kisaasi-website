@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universal High School Kisaasi</title>
-    <meta name="description" content="Universal High School-Kisaasi is a leading educational institution committed to providing quality education and fostering holistic development in students.">
+    <!-- Each page gets its own title. It shows in the browser tab and
+         as the blue link in Google results, so put the page name first. -->
+    <title>About Us | Universal High School Kisaasi</title>
+    <!-- Each page also gets its own description. Google often shows
+         this under the title, so it should describe THIS page. -->
+    <meta name="description" content="Learn about Universal High School Kisaasi: our story, vision, mission, values, student life and alumni. A day and boarding O-level and A-level school in Kisaasi, Kampala.">
     <link rel="icon" href="images/favicon.png" type="image/png">
+    <!-- Icons: Font Awesome Free (same version as the home page) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,7 +46,90 @@
 </nav>
 
 <main id="main">
-  <h1>Universal High School Kisaasi</h1>   <!-- temporary -->
+  <!-- 1. Page banner
+       A shorter version of the home hero. Inner pages use a smaller
+       banner so visitors reach the content faster, while the photo
+       and green overlay keep the same look as the home page.
+       The h1 names the page. Every page should have exactly one h1. -->
+  <section class="page-banner">
+    <div class="container">
+      <h1>About us</h1>
+      <p class="page-banner-text">Who we are, what we believe in, and
+         the students we are proud of.</p>
+    </div>
+  </section>
+
+  <!-- 2. Our story
+       TODO: replace every [bracketed] placeholder with facts
+       confirmed by the school before the site goes live.
+       Layout: on phones the story sits above the quick facts;
+       on wider screens they sit side by side (see CSS). -->
+  <section class="section" id="our-story">
+    <div class="container story-layout">
+
+      <!-- clearfix: the image inside is floated, so without it this
+           box would collapse and stop before the image ends.
+           (Brief requirement: floated image + correct use of clear.) -->
+      <div class="story-text clearfix">
+        <h2 class="section-title">Our story</h2>
+
+        <!-- Floated image: the paragraphs below wrap around it.
+             width/height match the real file (1080 x 720) so the
+             browser reserves the space before the photo loads and
+             the text doesn't jump.
+             TODO: swap for a different school photo once the client
+             sends more (this one is also the home hero). -->
+        <img class="story-image" src="images/hero-photo.jpeg"
+             alt="Students and staff at Universal High School Kisaasi"
+             width="1080" height="720">
+
+        <p>Universal High School Kisaasi was founded in [year] by
+           [founder's name] with one aim: to give every learner in
+           Kisaasi and beyond a quality secondary education.</p>
+        <p>[One or two sentences on how the school has grown since then,
+           for example new classrooms, laboratories or the opening of
+           A-level.]</p>
+        <p>Today we are a day and boarding school offering O-level and
+           A-level education, guided by a learner-centred approach that
+           helps every student discover who they are.</p>
+      </div>
+
+      <!-- Quick facts use a description list (dl):
+           dt = the label, dd = its value. This is the correct HTML
+           for label/value pairs, and screen readers read them as
+           pairs. It matches the opening-hours list on the home page. -->
+      <aside class="quick-facts" aria-label="Quick facts">
+        <h3>Quick facts</h3>
+        <dl>
+          <div class="fact">
+            <dt>Founded</dt>
+            <dd>[Year]</dd>
+          </div>
+          <div class="fact">
+            <dt>Levels</dt>
+            <dd>O-level and A-level</dd>
+          </div>
+          <div class="fact">
+            <dt>Students</dt>
+            <dd>Day and boarding</dd>
+          </div>
+          <div class="fact">
+            <dt>Location</dt>
+            <dd>Kisaasi, Kampala</dd>
+          </div>
+        </dl>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- Next steps (built one at a time):
+       3. Vision and mission
+       4. Our values
+       5. Student life  (id="student-life", linked from the home card)
+       6. Alumni
+       7. Call to action (reuses the home admissions band) -->
+
 </main>
 
 <!-- ==========================================================
