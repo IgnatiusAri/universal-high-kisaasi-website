@@ -479,11 +479,12 @@ main {
    ========================================================== */
 
 /* ----- Page banner -----
-   Shared by every inner page, so it is not called "about-banner".
-   Same recipe as the home hero (photo + green overlay) but shorter:
-   inner pages should get visitors to the content quickly.
-   Uses students.jpeg so it doesn't repeat the home hero photo.
-   Image path is relative to this stylesheet (both in the site root). */
+   Shared by all inner pages (keep it page-agnostic).
+   Shorter variant of .hero. Overlay is darker than the hero's
+   because there are no buttons and the text must read over any
+   part of the photo.
+   Image path is relative to this file: if the stylesheet moves to
+   css/, change it to ../images/. */
 .page-banner {
   padding: 3rem 0;
   color: #FFFFFF;
@@ -491,7 +492,7 @@ main {
   background:
     linear-gradient(rgba(23, 67, 47, 0.75), rgba(23, 67, 47, 0.9)),
     url("images/students.jpeg") center / cover no-repeat;
-  border-bottom: 0.25rem solid #ECE42C;   /* yellow line, like the header */
+  border-bottom: 0.25rem solid #ECE42C;
 }
 
 .page-banner h1 {
@@ -502,7 +503,6 @@ main {
   text-shadow: 0.0625rem 0.125rem 0.25rem rgba(0, 0, 0, 0.6);
 }
 
-/* max-width + auto margins keep the line short and centred */
 .page-banner-text {
   max-width: 40ch;
   margin: 0 auto;
@@ -511,16 +511,13 @@ main {
 }
 
 /* ----- Shared section styles -----
-   Every content block on inner pages uses .section and
-   .section-title, so spacing and headings stay identical
-   without repeating the same rules for each section. */
+   Use these for every inner-page section instead of per-section
+   padding/heading rules. Home-page sections predate them. */
 .section {
   padding: 2.5rem 0;
 }
 
-/* Alternate sections get a white background so the page reads as
-   clear bands instead of one long block. Add .section-white in
-   the HTML wherever a white band is wanted. */
+/* Modifier: alternate sections white so bands are distinguishable */
 .section-white {
   background: #FFFFFF;
 }
@@ -534,22 +531,22 @@ main {
 
 /* ----- About: our story ----- */
 
-/* Phone: story above facts, with a gap between them */
+/* Story and quick facts: stacked on phones, side by side from 48em */
 .story-layout {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-/* No max-width on these paragraphs: a capped paragraph would
-   stop short of the floated image and leave an odd gap. */
+/* Deliberately no max-width (unlike .intro p): a capped width
+   leaves a visible gap beside the floated image. */
 .story-text p {
   margin: 0 0 1rem;
   line-height: 1.6;
 }
 
-/* Phone: the photo sits full width above the text. A floated
-   photo at 360 px would leave a text column too narrow to read. */
+/* Full width on phones; floated from 48em (see media query).
+   Floating at 360 px leaves too narrow a text column. */
 .story-image {
   display: block;
   width: 100%;
@@ -560,17 +557,15 @@ main {
   box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
-/* Clearfix: a floated child doesn't add to its parent's height.
-   This invisible ::after box sits after all the content and
-   "clears" (drops below) any float, so the parent grows to
-   contain the image. Reusable on any box with floats inside. */
+/* Utility: add to any parent of floated children so it contains
+   them. Planned reuse: gallery grid. */
 .clearfix::after {
   content: "";
   display: block;
   clear: both;
 }
 
-/* Facts box: white card with a yellow edge, like the home cards */
+/* Facts box */
 .quick-facts {
   padding: 1.25rem;
   background: #FFFFFF;
@@ -616,15 +611,14 @@ main {
 
 /* ----- About: vision and mission ----- */
 
-/* Phone: cards stacked */
 .purpose-grid {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-/* position: relative makes the card the anchor for the
-   decorative quote mark (::before) below. */
+/* position: relative anchors the ::before quote mark;
+   overflow: hidden clips it to the card. */
 .purpose-card {
   position: relative;
   padding: 1.75rem 1.5rem 1.5rem;
@@ -633,18 +627,15 @@ main {
   border-left: 0.375rem solid #205B42;
   border-radius: 0.5rem;
   box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.08);
-  overflow: hidden;   /* clips the large quote mark to the card */
+  overflow: hidden;
 }
 
-/* Mission card uses the school red so the two read as a pair,
-   not as duplicates */
+/* Second card (mission) in red; order-dependent */
 .purpose-card:nth-child(2) {
   border-left-color: #DA3C2F;
 }
 
-/* Big faded quote mark in the corner: these are statements, so a
-   quote mark suits them. Pure decoration, drawn with ::before so
-   it isn't in the HTML or read aloud. */
+/* Decorative quote mark, kept out of the HTML and accessibility tree */
 .purpose-card::before {
   content: "\201C";
   position: absolute;
@@ -656,7 +647,7 @@ main {
   color: rgba(32, 91, 66, 0.08);
 }
 
-/* Round icon badge, same recipe as the home cards */
+/* Same badge as .card-icon on the home page; keep them visually in sync */
 .purpose-icon {
   display: flex;
   align-items: center;
@@ -681,7 +672,6 @@ main {
   color: #205B42;
 }
 
-/* Statement text slightly larger: it is the point of the card */
 .purpose-card p {
   margin: 0;
   font-size: 1.1rem;
@@ -690,9 +680,8 @@ main {
 
 /* ----- About: values ----- */
 
-/* Phone: two columns. Each value is short, so two fit side by
-   side even at 360 px, and the list is half as long to scroll.
-   flex-wrap lets items flow onto new rows. */
+/* 2 columns on phones, 3 from 48em. Item widths are calc()'d
+   against the 1rem gap: change both together. */
 .values-grid {
   display: flex;
   flex-wrap: wrap;
@@ -702,7 +691,6 @@ main {
   list-style: none;
 }
 
-/* calc: half the row, minus half the 1rem gap, so two fit exactly */
 .value-item {
   flex: 0 0 calc(50% - 0.5rem);
   padding: 1.25rem 1rem;
@@ -714,14 +702,13 @@ main {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Lift on hover, like the home cards */
+/* Same hover lift as .card */
 .value-item:hover {
   transform: translateY(-0.1875rem);
   box-shadow: 0 0.375rem 1rem rgba(0, 0, 0, 0.18);
 }
 
-/* Rotate the three school colours along the bottom edge:
-   3n+2 = 2nd, 5th; 3n+3 = 3rd, 6th */
+/* Cycle green / yellow / red across items */
 .value-item:nth-child(3n+2) {
   border-bottom-color: #ECE42C;
 }
@@ -744,7 +731,7 @@ main {
   color: #205B42;
 }
 
-/* 1rem = 16 px: the brief's minimum body text size */
+/* Do not go below 1rem: 16 px minimum body text */
 .value-item p {
   margin: 0;
   font-size: 1rem;
@@ -933,7 +920,7 @@ main {
     font-size: 2.5rem;
   }
 
-  /* Inner pages: more breathing room and a bigger title */
+  /* Inner pages: banner */
   .page-banner {
     padding: 4.5rem 0;
   }
@@ -942,11 +929,8 @@ main {
     font-size: 2.25rem;
   }
 
-  /* About: story and quick facts side by side.
-     The story grows to fill the space (flex: 2); the facts box
-     keeps a fixed, readable width (flex: 0 0 18rem).
-     align-items: flex-start stops the box stretching to the
-     story's height. */
+  /* About: story beside a fixed-width facts box. flex-start stops
+     the facts box stretching to the story's height. */
   .story-layout {
     flex-direction: row;
     align-items: flex-start;
@@ -957,7 +941,7 @@ main {
     flex: 2;
   }
 
-  /* About: vision and mission side by side, equal widths */
+  /* About: vision and mission side by side */
   .purpose-grid {
     flex-direction: row;
   }
@@ -966,17 +950,16 @@ main {
     flex: 1;
   }
 
-  /* About: values in three columns (two rows of three) */
+  /* About: values, 3 columns (calc matches the 1rem gap) */
   .value-item {
     flex-basis: calc(33.333% - 0.667rem);
   }
 
-  /* Float the photo left: the paragraphs flow down its right side,
-     then return to full width below it. */
+  /* About: story photo floats; parent has .clearfix */
   .story-image {
     float: left;
     width: 45%;
-    margin: 0.25rem 1.5rem 1rem 0;   /* space between photo and text */
+    margin: 0.25rem 1.5rem 1rem 0;
   }
 
   .quick-facts {

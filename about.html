@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Each page gets its own title. It shows in the browser tab and
-         as the blue link in Google results, so put the page name first. -->
+    <!-- Title format on inner pages: "Page | School name" -->
     <title>About Us | Universal High School Kisaasi</title>
-    <!-- Each page also gets its own description. Google often shows
-         this under the title, so it should describe THIS page. -->
     <meta name="description" content="Learn about Universal High School Kisaasi: our story, vision, mission, values, student life and alumni. A day and boarding O-level and A-level school in Kisaasi, Kampala.">
     <link rel="icon" href="images/favicon.png" type="image/png">
-    <!-- Icons: Font Awesome Free (same version as the home page) -->
+    <!-- Font Awesome Free; keep the version in sync across all pages -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -46,11 +43,7 @@
 </nav>
 
 <main id="main">
-  <!-- 1. Page banner
-       A shorter version of the home hero. Inner pages use a smaller
-       banner so visitors reach the content faster, while the photo
-       and green overlay keep the same look as the home page.
-       The h1 names the page. Every page should have exactly one h1. -->
+  <!-- 1. Page banner (shared .page-banner component, see style.css) -->
   <section class="page-banner">
     <div class="container">
       <h1>About us</h1>
@@ -60,25 +53,20 @@
   </section>
 
   <!-- 2. Our story
-       TODO: replace every [bracketed] placeholder with facts
-       confirmed by the school before the site goes live.
-       Layout: on phones the story sits above the quick facts;
-       on wider screens they sit side by side (see CSS). -->
+       TODO: replace [bracketed] placeholders with facts confirmed
+       by the school. Quick facts repeat the founding year: update
+       both together. -->
   <section class="section" id="our-story">
     <div class="container story-layout">
 
-      <!-- clearfix: the image inside is floated, so without it this
-           box would collapse and stop before the image ends.
-           (Brief requirement: floated image + correct use of clear.) -->
+      <!-- .clearfix is required: .story-image floats from 48em up -->
       <div class="story-text clearfix">
         <h2 class="section-title">Our story</h2>
 
-        <!-- Floated image: the paragraphs below wrap around it.
-             width/height match the real file (1080 x 720) so the
-             browser reserves the space before the photo loads and
-             the text doesn't jump.
-             TODO: swap for a different school photo once the client
-             sends more (this one is also the home hero). -->
+        <!-- width/height are the file's real size (prevents layout
+             shift); update them if the image is replaced.
+             TODO: use a different photo when available; this one is
+             also the home hero background. -->
         <img class="story-image" src="images/hero-photo.jpeg"
              alt="Students and staff at Universal High School Kisaasi"
              width="1080" height="720">
@@ -94,10 +82,9 @@
            helps every student discover who they are.</p>
       </div>
 
-      <!-- Quick facts use a description list (dl):
-           dt = the label, dd = its value. This is the correct HTML
-           for label/value pairs, and screen readers read them as
-           pairs. It matches the opening-hours list on the home page. -->
+      <!-- Label/value pairs as a <dl>, same pattern as the home
+           opening hours. The <div> wrapper per pair is valid HTML
+           and is needed for the row styling. -->
       <aside class="quick-facts" aria-label="Quick facts">
         <h3>Quick facts</h3>
         <dl>
@@ -124,19 +111,15 @@
   </section>
 
   <!-- 3. Vision and mission
-       Wording taken from the home page introduction, which was
-       adapted from the school's admission forms. Two cards because
-       they are two separate statements of equal weight.
-       Each card is an <article>: a self-contained piece that would
-       still make sense on its own. -->
+       Source: admission forms, as adapted in the index.html intro.
+       If the school changes the wording, update index.html too.
+       Card colours are set by position (:nth-child) in style.css. -->
   <section class="section section-white" id="vision-mission">
     <div class="container">
       <h2 class="section-title">Vision and mission</h2>
 
       <div class="purpose-grid">
         <article class="purpose-card">
-          <!-- aria-hidden: the icon is decoration; the heading
-               already says "Our vision", so screen readers skip it -->
           <span class="purpose-icon" aria-hidden="true">
             <i class="fa-solid fa-eye"></i>
           </span>
@@ -159,10 +142,11 @@
   </section>
 
   <!-- 4. Our values
-       The same six values as the home page, here with an icon and a
-       short line each. It's a <ul> because it is a list of items.
-       TODO: ask the school to confirm or reword the one-line
-       explanations. -->
+       Must match the .values list in index.html.
+       Icons are decorative (aria-hidden); the h3 carries the meaning.
+       Bottom-border colours cycle every 3 items via :nth-child, so
+       adding or removing a value shifts the colours.
+       TODO: one-line explanations are drafts; confirm with the school. -->
   <section class="section" id="values">
     <div class="container">
       <h2 class="section-title">Our values</h2>
@@ -206,12 +190,12 @@
     </div>
   </section>
 
-  <!-- Next steps (built one at a time):
-       5. Meet our head teacher (photo + welcome; brief requires a
-          team introduction with photo)
-       6. Student life  (id="student-life", linked from the home card)
+  <!-- TODO: remaining sections
+       5. Head teacher introduction with photo
+       6. Student life: must have id="student-life" (target of the
+          home page "Student life" card)
        7. Alumni
-       8. Call to action (reuses the home admissions band) -->
+       8. Call to action (reuse .admissions-band from index.html) -->
 
 </main>
 
