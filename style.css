@@ -614,6 +614,143 @@ main {
   text-align: right;
 }
 
+/* ----- About: vision and mission ----- */
+
+/* Phone: cards stacked */
+.purpose-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* position: relative makes the card the anchor for the
+   decorative quote mark (::before) below. */
+.purpose-card {
+  position: relative;
+  padding: 1.75rem 1.5rem 1.5rem;
+  background: #F7F8F5;
+  border: 0.0625rem solid #D5DDD7;
+  border-left: 0.375rem solid #205B42;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.08);
+  overflow: hidden;   /* clips the large quote mark to the card */
+}
+
+/* Mission card uses the school red so the two read as a pair,
+   not as duplicates */
+.purpose-card:nth-child(2) {
+  border-left-color: #DA3C2F;
+}
+
+/* Big faded quote mark in the corner: these are statements, so a
+   quote mark suits them. Pure decoration, drawn with ::before so
+   it isn't in the HTML or read aloud. */
+.purpose-card::before {
+  content: "\201C";
+  position: absolute;
+  top: -1.5rem;
+  right: 0.75rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 7rem;
+  line-height: 1;
+  color: rgba(32, 91, 66, 0.08);
+}
+
+/* Round icon badge, same recipe as the home cards */
+.purpose-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  color: #FFFFFF;
+  background: #205B42;
+  border-radius: 50%;
+}
+
+.purpose-card:nth-child(2) .purpose-icon {
+  background: #DA3C2F;
+}
+
+.purpose-card h3 {
+  margin: 0 0 0.5rem;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  color: #205B42;
+}
+
+/* Statement text slightly larger: it is the point of the card */
+.purpose-card p {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* ----- About: values ----- */
+
+/* Phone: two columns. Each value is short, so two fit side by
+   side even at 360 px, and the list is half as long to scroll.
+   flex-wrap lets items flow onto new rows. */
+.values-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* calc: half the row, minus half the 1rem gap, so two fit exactly */
+.value-item {
+  flex: 0 0 calc(50% - 0.5rem);
+  padding: 1.25rem 1rem;
+  text-align: center;
+  background: #FFFFFF;
+  border-bottom: 0.25rem solid #205B42;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Lift on hover, like the home cards */
+.value-item:hover {
+  transform: translateY(-0.1875rem);
+  box-shadow: 0 0.375rem 1rem rgba(0, 0, 0, 0.18);
+}
+
+/* Rotate the three school colours along the bottom edge:
+   3n+2 = 2nd, 5th; 3n+3 = 3rd, 6th */
+.value-item:nth-child(3n+2) {
+  border-bottom-color: #ECE42C;
+}
+
+.value-item:nth-child(3n+3) {
+  border-bottom-color: #DA3C2F;
+}
+
+.value-item i {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.75rem;
+  color: #205B42;
+}
+
+.value-item h3 {
+  margin: 0 0 0.375rem;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: #205B42;
+}
+
+/* 1rem = 16 px: the brief's minimum body text size */
+.value-item p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
 /* ==========================================================
    FOOTER
    ========================================================== */
@@ -818,6 +955,20 @@ main {
 
   .story-text {
     flex: 2;
+  }
+
+  /* About: vision and mission side by side, equal widths */
+  .purpose-grid {
+    flex-direction: row;
+  }
+
+  .purpose-card {
+    flex: 1;
+  }
+
+  /* About: values in three columns (two rows of three) */
+  .value-item {
+    flex-basis: calc(33.333% - 0.667rem);
   }
 
   /* Float the photo left: the paragraphs flow down its right side,

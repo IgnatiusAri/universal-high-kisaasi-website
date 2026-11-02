@@ -123,12 +123,95 @@
     </div>
   </section>
 
+  <!-- 3. Vision and mission
+       Wording taken from the home page introduction, which was
+       adapted from the school's admission forms. Two cards because
+       they are two separate statements of equal weight.
+       Each card is an <article>: a self-contained piece that would
+       still make sense on its own. -->
+  <section class="section section-white" id="vision-mission">
+    <div class="container">
+      <h2 class="section-title">Vision and mission</h2>
+
+      <div class="purpose-grid">
+        <article class="purpose-card">
+          <!-- aria-hidden: the icon is decoration; the heading
+               already says "Our vision", so screen readers skip it -->
+          <span class="purpose-icon" aria-hidden="true">
+            <i class="fa-solid fa-eye"></i>
+          </span>
+          <h3>Our vision</h3>
+          <p>To guide each learner to become a leader who transforms
+             society.</p>
+        </article>
+
+        <article class="purpose-card">
+          <span class="purpose-icon" aria-hidden="true">
+            <i class="fa-solid fa-compass"></i>
+          </span>
+          <h3>Our mission</h3>
+          <p>To provide the best education in a learner-centred
+             environment that embraces every student's uniqueness and
+             helps them discover who they are.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Our values
+       The same six values as the home page, here with an icon and a
+       short line each. It's a <ul> because it is a list of items.
+       TODO: ask the school to confirm or reword the one-line
+       explanations. -->
+  <section class="section" id="values">
+    <div class="container">
+      <h2 class="section-title">Our values</h2>
+
+      <ul class="values-grid">
+        <li class="value-item">
+          <i class="fa-solid fa-hands-praying" aria-hidden="true"></i>
+          <h3>God fearing</h3>
+          <p>Faith and respect guide how we live and learn.</p>
+        </li>
+        <li class="value-item">
+          <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+          <h3>Integrity</h3>
+          <p>We are honest and do what is right, even when no one
+             is watching.</p>
+        </li>
+        <li class="value-item">
+          <i class="fa-solid fa-person-digging" aria-hidden="true"></i>
+          <h3>Hard work</h3>
+          <p>Effort every day is how goals are reached.</p>
+        </li>
+        <li class="value-item">
+          <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+          <h3>Creativity</h3>
+          <p>We encourage new ideas and fresh ways of solving
+             problems.</p>
+        </li>
+        <li class="value-item">
+          <i class="fa-solid fa-medal" aria-hidden="true"></i>
+          <h3>Excellence</h3>
+          <p>We aim for our best in class, in sport and in
+             character.</p>
+        </li>
+        <li class="value-item">
+          <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+          <h3>Focus</h3>
+          <p>We keep our eyes on our goals and finish what we
+             start.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <!-- Next steps (built one at a time):
-       3. Vision and mission
-       4. Our values
-       5. Student life  (id="student-life", linked from the home card)
-       6. Alumni
-       7. Call to action (reuses the home admissions band) -->
+       5. Meet our head teacher (photo + welcome; brief requires a
+          team introduction with photo)
+       6. Student life  (id="student-life", linked from the home card)
+       7. Alumni
+       8. Call to action (reuses the home admissions band) -->
 
 </main>
 
