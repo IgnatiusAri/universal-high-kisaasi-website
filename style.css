@@ -400,6 +400,47 @@ main {
   text-decoration: underline;
 }
 
+/* ----- Home: opening hours ----- */
+
+.hours {
+  padding: 2.5rem 0;
+  background: #FFFFFF;
+}
+
+.hours h2 i {
+  margin-right: 0.5rem;
+}
+
+/* Narrow list keeps each day close to its time */
+.hours-list {
+  max-width: 32rem;
+  margin: 0;
+}
+
+/* One row per day, hairline between rows */
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 0.0625rem solid #D5DDD7;
+}
+
+.hours-row:last-child {
+  border-bottom: 0;
+}
+
+.hours-list dt {
+  font-weight: 600;
+  color: #205B42;
+}
+
+/* Browsers indent dd by default */
+.hours-list dd {
+  margin: 0;
+  text-align: right;
+}
+
 /* ==========================================================
    FOOTER
    ========================================================== */
