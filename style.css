@@ -29,7 +29,7 @@ body {
 }
 
 
-/* Page at least as tall as the screen; stack header, main, footer */
+/* Page at least as tall as the screen; stack header, main,    */
 body {
   margin: 0;
   min-height: 100vh;   /* fallback for older browsers */
