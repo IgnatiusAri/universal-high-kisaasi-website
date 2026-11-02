@@ -441,6 +441,38 @@ main {
   text-align: right;
 }
 
+/* ----- Home: admissions band ----- */
+
+.admissions-band {
+  padding: 2.5rem 0;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #205B42, #17432F);
+  border-top: 0.25rem solid #ECE42C;
+}
+
+/* Phone: text above buttons */
+.band-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.band-text h2 {
+  margin: 0 0 0.5rem;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+}
+
+.band-text p {
+  margin: 0;
+}
+
+.band-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
 /* ==========================================================
    FOOTER
    ========================================================== */
