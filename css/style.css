@@ -820,10 +820,168 @@ main {
   color: #EAF1EC;
 }
 
+/* ----- About: daily routine, pure CSS tabs -----
+   State lives in three visually hidden radio buttons. Each rule
+   below pairs a radio id with its tab label or panel; adding a day
+   means adding a radio, a label, a panel and one line to each of
+   the three selector lists. */
+.routine {
+  margin-top: 2.5rem;
+  padding: 1.5rem 1.25rem;
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 0.75rem;
+}
+
+.routine-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.3rem;
+  color: #ECE42C;
+}
+
+.routine-note {
+  margin: 0 0 1.25rem;
+  color: #EAF1EC;
+}
+
+/* Tabs: wrap on narrow phones */
+.routine-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.routine-tabs label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  cursor: pointer;
+  border: 0.125rem solid rgba(255, 255, 255, 0.35);
+  border-radius: 2rem;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.routine-tabs label:hover {
+  border-color: #ECE42C;
+}
+
+/* Selected tab */
+#routine-weekdays:checked ~ .routine-tabs [for="routine-weekdays"],
+#routine-saturday:checked ~ .routine-tabs [for="routine-saturday"],
+#routine-sunday:checked ~ .routine-tabs [for="routine-sunday"] {
+  color: #17432F;
+  background: #ECE42C;
+  border-color: #ECE42C;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.3);
+}
+
+/* Keyboard focus is on the hidden radio: draw it on its label */
+#routine-weekdays:focus-visible ~ .routine-tabs [for="routine-weekdays"],
+#routine-saturday:focus-visible ~ .routine-tabs [for="routine-saturday"],
+#routine-sunday:focus-visible ~ .routine-tabs [for="routine-sunday"] {
+  outline: 0.1875rem solid #FFFFFF;
+  outline-offset: 0.1875rem;
+}
+
+/* Panels hidden unless their radio is checked. The fade-in animation
+   replays each time a panel goes from display: none to block. */
+.routine-panel {
+  display: none;
+}
+
+#routine-weekdays:checked ~ .routine-panel-weekdays,
+#routine-saturday:checked ~ .routine-panel-saturday,
+#routine-sunday:checked ~ .routine-panel-sunday {
+  display: block;
+  animation: routine-in 0.35s ease;
+}
+
+@keyframes routine-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Timeline: vertical rule drawn by .timeline::before, a dot per
+   item by li::before (both absolutely positioned against the
+   relative list / item). Left padding makes room for both. */
+.timeline {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 1.75rem;
+  list-style: none;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 0.4375rem;               /* centre of the 1rem dot column */
+  border-left: 0.125rem dashed rgba(255, 255, 255, 0.35);
+}
+
+.timeline li {
+  position: relative;
+  padding: 0 0 0.875rem;
+  color: #EAF1EC;
+}
+
+.timeline li:last-child {
+  padding-bottom: 0;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  top: 0.4rem;
+  left: -1.75rem;
+  width: 1rem;
+  height: 1rem;
+  background: #17432F;
+  border: 0.1875rem solid #ECE42C;
+  border-radius: 50%;
+}
+
+/* Times in a fixed column so the activities line up */
+.timeline time {
+  display: inline-block;
+  min-width: 5.5rem;
+  font-weight: 700;
+  color: #ECE42C;
+}
+
+/* Highlights (lessons, sports, entertainment...): filled red dot */
+.timeline .timeline-key {
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.timeline .timeline-key::before {
+  background: #DA3C2F;
+  border-color: #FFFFFF;
+  box-shadow: 0 0 0 0.25rem rgba(218, 60, 47, 0.35);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .life-tile,
   .life-icon {
     transition: none;
+  }
+
+  /* !important: the rules that start the animation use id selectors,
+     which would otherwise outrank this class selector */
+  .routine-panel {
+    animation: none !important;
   }
 
   .life-tile:hover,
