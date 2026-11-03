@@ -59,6 +59,12 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
 }
 
+/* In-page links (#apply, #fees, #student-life...): stop the target
+   sliding under the sticky header. Keep above the header's height. */
+[id] {
+  scroll-margin-top: 5.5rem;
+}
+
 /* main takes all spare height, pushing the footer down */
 main {
   flex: 1;
