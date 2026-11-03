@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universal High School Kisaasi</title>
-    <meta name="description" content="Universal High School-Kisaasi is a leading educational institution committed to providing quality education and fostering holistic development in students.">
+    <title>Gallery | Universal High School Kisaasi</title>
+    <meta name="description" content="Photos of Universal High School Kisaasi: the campus, classroom blocks, dormitories, playing field, students and staff.">
     <link rel="icon" href="images/favicon.png" type="image/png">
     <!-- Google Fonts: Montserrat (headings), Open Sans (body).
          Weights requested must match the font-weight values used in
@@ -48,7 +48,148 @@
 </nav>
 
 <main id="main">
-  <h1>Universal High School Kisaasi</h1>   <!-- temporary -->
+
+  <!-- 1. Page banner (shared .page-banner component) -->
+  <section class="page-banner">
+    <div class="container">
+      <h1>Gallery</h1>
+      <p class="page-banner-text">A look around our campus, students
+         and staff.</p>
+    </div>
+  </section>
+
+  <!-- Gallery markup pattern, used for every photo:
+         <figure class="gallery-item">
+           <a href="full image">  opens the full-size photo; also makes
+                                  the item keyboard-focusable
+             <img ...>            width/height = real file size
+           </a>
+           <figcaption>           short visible caption
+         </figure>
+       alt describes what is in the photo; figcaption names it. They
+       are deliberately different so screen readers don't repeat.
+       loading="lazy" defers off-screen images until scrolled near.
+       All photos supplied by the school (see README credits). -->
+
+  <!-- 2. Our campus -->
+  <section class="section" id="campus">
+    <div class="container">
+      <h2 class="section-title">Our campus</h2>
+
+      <div class="gallery">
+        <figure class="gallery-item">
+          <a href="images/main-compound.jpeg">
+            <img src="images/main-compound.jpeg"
+                 alt="Green lawn and stone terraces in front of the three-storey classroom block"
+                 width="1080" height="720">
+          </a>
+          <figcaption>Main compound</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <a href="images/compound3.jpeg">
+            <img src="images/compound3.jpeg"
+                 alt="Students gathered on the playground beside the classroom block"
+                 width="1080" height="720">
+          </a>
+          <figcaption>Playground and classroom block</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <a href="images/compound4.jpeg">
+            <img src="images/compound4.jpeg"
+                 alt="Open playing field with the classroom blocks behind it"
+                 width="1080" height="720">
+          </a>
+          <figcaption>Playing field</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <a href="images/compound1.jpeg">
+            <img src="images/compound1.jpeg"
+                 alt="Paved paths, flower beds and a large shade tree between school buildings"
+                 width="1080" height="720" loading="lazy">
+          </a>
+          <figcaption>Gardens and walkways</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <a href="images/domitories.jpeg">
+            <img src="images/domitories.jpeg"
+                 alt="Dormitory buildings surrounded by lawns and trees"
+                 width="1080" height="720" loading="lazy">
+          </a>
+          <figcaption>Dormitory area</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Students and staff
+       admin-block.jpeg is portrait (720 x 1080); the CSS crops every
+       photo to the same shape so the float rows stay level. -->
+  <section class="section section-white" id="people">
+    <div class="container">
+      <h2 class="section-title">Students and staff</h2>
+
+      <div class="gallery">
+        <figure class="gallery-item">
+          <a href="images/students.jpeg">
+            <img src="images/students.jpeg"
+                 alt="Students in green and white uniforms lined up on the lawn"
+                 width="1080" height="720" loading="lazy">
+          </a>
+          <figcaption>Our students</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <a href="images/students-body.jpeg">
+            <img src="images/students-body.jpeg"
+                 alt="The whole student body gathered in rows in front of the school buildings"
+                 width="1080" height="720" loading="lazy">
+          </a>
+          <figcaption>The student body</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <a href="images/compound2.jpeg">
+            <img src="images/compound2.jpeg"
+                 alt="Students standing in long lines across the school grounds"
+                 width="1080" height="720" loading="lazy">
+          </a>
+          <figcaption>School assembly</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <a href="images/hero-photo.jpeg">
+            <img src="images/hero-photo.jpeg"
+                 alt="Students on the balconies of the classroom block and on the field below"
+                 width="1080" height="720" loading="lazy">
+          </a>
+          <figcaption>A full school day</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <a href="images/staff.jpeg">
+            <img src="images/staff.jpeg"
+                 alt="Teaching and administrative staff standing together outside the administration block"
+                 width="1080" height="720" loading="lazy">
+          </a>
+          <figcaption>Our staff</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <a href="images/admin-block.jpeg">
+            <img src="images/admin-block.jpeg"
+                 alt="Staff group photo in front of the two-storey administration block"
+                 width="720" height="1080" loading="lazy">
+          </a>
+          <figcaption>Administration block</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <!-- ==========================================================
