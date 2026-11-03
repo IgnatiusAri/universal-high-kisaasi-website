@@ -558,6 +558,23 @@ main {
   text-align: right;
 }
 
+/* What the time is for (Lessons, Prayers...), on its own line */
+.hours-note {
+  display: block;
+  font-size: 0.875rem;
+  color: #5F6F66;
+}
+
+.hours-visit {
+  max-width: 32rem;
+  margin: 1rem 0 0;
+}
+
+.hours-visit a {
+  font-weight: 700;
+  color: #205B42;
+}
+
 /* ----- Home: admissions band ----- */
 
 .admissions-band {
