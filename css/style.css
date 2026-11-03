@@ -582,11 +582,26 @@ main {
 }
 
 /* Utility: add to any parent of floated children so it contains
-   them. Planned reuse: gallery grid. */
+   them. Used by .story-text (about) and .gallery. */
 .clearfix::after {
   content: "";
   display: block;
   clear: both;
+}
+
+/* Utility: hides content visually but keeps it in the accessibility
+   tree (unlike display: none). Used for the gallery page h1.
+   Standard pattern; every declaration is needed. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Facts box */
@@ -1128,6 +1143,14 @@ main {
 
 .req-group .checklist {
   padding: 0.25rem 1rem 0.5rem;
+}
+
+/* ----- Gallery ----- */
+
+/* Apply now button under the last photo group */
+.gallery-cta {
+  padding-block: 1rem 2.5rem;
+  text-align: center;
 }
 
 /* ==========================================================
