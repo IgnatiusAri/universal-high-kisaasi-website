@@ -2,9 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- GitHub Pages serves this file for ANY missing URL, including
+         nested ones (/repo/a/b). <base> makes every relative path on
+         this page resolve from the site root, so CSS, images and links
+         still work there. Must come before any other relative URL.
+         Update it if the repository is renamed. Side effect: opening
+         this file locally (not via the live URL) will look unstyled. -->
+    <base href="/universal-high-kisaasi-website/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universal High School Kisaasi</title>
-    <meta name="description" content="Universal High School-Kisaasi is a leading educational institution committed to providing quality education and fostering holistic development in students.">
+    <title>Page Not Found | Universal High School Kisaasi</title>
+    <meta name="description" content="The page you were looking for could not be found. Go back to the Universal High School Kisaasi home page.">
     <link rel="icon" href="images/favicon.png" type="image/png">
     <!-- Google Fonts: Montserrat (headings), Open Sans (body).
          Weights requested must match the font-weight values used in
@@ -13,6 +20,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap">
+    <!-- Font Awesome Free; keep the version in sync across all pages -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -33,7 +42,27 @@
       </header>
 
 <main id="main">
-  <h1>Universal High School Kisaasi</h1>   <!-- temporary -->
+
+  <!-- Error page: no breadcrumb (the visitor is not "on" a real page).
+       Offers the pages people most often look for. -->
+  <section class="section error-page">
+    <div class="container">
+      <p class="error-code" aria-hidden="true">404</p>
+      <h1>Sorry, we could not find that page</h1>
+      <p class="error-text">The link may be old, or the address may have
+         a typing mistake. These pages may help:</p>
+
+      <ul class="error-links">
+        <li><a class="btn btn-primary" href="index.html">
+          <i class="fa-solid fa-house" aria-hidden="true"></i> Home page</a></li>
+        <li><a class="btn btn-secondary btn-outline" href="services.html">
+          <i class="fa-solid fa-school" aria-hidden="true"></i> Programmes and admissions</a></li>
+        <li><a class="btn btn-secondary btn-outline" href="contact.html">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> Contact us</a></li>
+      </ul>
+    </div>
+  </section>
+
 </main>
 
 <!-- ==========================================================

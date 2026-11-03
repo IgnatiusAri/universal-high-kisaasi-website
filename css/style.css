@@ -1497,6 +1497,44 @@ main {
   background: #128C7E;
 }
 
+/* ----- 404 page ----- */
+.error-page {
+  text-align: center;
+}
+
+/* Large decorative "404" with a hard yellow text-shadow offset
+   behind it (zero blur gives a solid "printed" shadow) */
+.error-code {
+  margin: 0;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-size: 7rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #205B42;
+  text-shadow: 0.25rem 0.25rem 0 #ECE42C;
+}
+
+.error-page h1 {
+  margin: 1rem 0 0.75rem;
+  font-size: 1.5rem;
+  color: #205B42;
+}
+
+.error-text {
+  max-width: 40ch;
+  margin: 0 auto 1.5rem;
+}
+
+.error-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 /* ==========================================================
    FOOTER
    ========================================================== */
