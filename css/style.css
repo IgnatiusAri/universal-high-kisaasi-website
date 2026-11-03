@@ -1195,10 +1195,24 @@ main {
   transition: transform 0.4s ease;
 }
 
+/* Stretched link: an empty ::after on the link covers the whole
+   figure (it is positioned against .gallery-item, because the <a>
+   itself is not positioned) and sits above the caption, so a click
+   anywhere, caption included, opens the photo. Used instead of
+   pointer-events, which the W3C CSS validator rejects. */
+.gallery-item a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
 /* Caption overlay: pinned to the bottom of the photo and pushed
    below the frame (translateY(100%)) until hover or focus.
-   The gradient keeps white text readable on any photo.
-   pointer-events: none lets clicks pass through to the link. */
+   The gradient keeps white text readable on any photo. */
 .gallery-item figcaption {
   position: absolute;
   right: 0;
@@ -1212,7 +1226,6 @@ main {
   text-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.6);
   transform: translateY(100%);
   transition: transform 0.25s ease;
-  pointer-events: none;
 }
 
 /* Hover and keyboard focus (:focus-within = the link inside has
@@ -1232,6 +1245,38 @@ main {
 .gallery-item:hover figcaption,
 .gallery-item:focus-within figcaption {
   transform: translateY(0);
+}
+
+/* Keyboard focus ring on the frame. An element's own outline is not
+   clipped by its own overflow: hidden, so it is drawn on the figure
+   rather than on the link inside it. */
+.gallery-item:focus-within {
+  outline: 0.1875rem solid #ECE42C;
+  outline-offset: 0.1875rem;
+}
+
+/* Touch screens cannot hover: show captions all the time there */
+@media (hover: none) {
+  .gallery-item figcaption {
+    transform: none;
+  }
+}
+
+/* Respect the "reduce motion" system setting: keep the visual
+   changes but drop the movement */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-item,
+  .gallery-item img,
+  .gallery-item figcaption {
+    transition: none;
+  }
+
+  .gallery-item:hover,
+  .gallery-item:focus-within,
+  .gallery-item:hover img,
+  .gallery-item:focus-within img {
+    transform: none;
+  }
 }
 
 /* Apply now button under the last photo group */
