@@ -261,15 +261,27 @@
          competence-based secondary education.</p>
     </div>
 
-    <!-- 5. Brand and social links.
-         TODO: add Facebook / TikTok when the school has pages, e.g.
-         <li><a href="URL"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook</a></li>
-         Also update the "Follow us" section on contact.html. -->
+    <!-- 5. Brand and social links (wireframe: Facebook, TikTok,
+         WhatsApp). Facebook and TikTok are placeholders: an <a> with
+         no href is valid, is not focusable and does not jump to the
+         top of the page; CSS dims it. To activate one, add
+         href="PAGE URL" and delete its title and "(coming soon)" span.
+         Keep in step with the "Chat with us" section on contact.html. -->
     <div class="footer-brand">
       <img src="images/favicon.png"
            alt="Universal High School Kisaasi logo"
            width="64" height="64" loading="lazy">
       <ul class="social-links">
+        <li>
+          <a title="Coming soon">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook<span class="visually-hidden"> (coming soon)</span>
+          </a>
+        </li>
+        <li>
+          <a title="Coming soon">
+            <i class="fa-brands fa-tiktok" aria-hidden="true"></i> TikTok<span class="visually-hidden"> (coming soon)</span>
+          </a>
+        </li>
         <li>
           <a href="https://wa.me/256701835624?text=Hello%2C%20I%20would%20like%20to%20ask%20about%20Universal%20High%20School%20Kisaasi.">
             <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
