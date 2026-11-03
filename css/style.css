@@ -689,6 +689,16 @@ main {
   background: #DA3C2F;
 }
 
+/* Third card (commitment) in yellow; dark icon for contrast */
+.purpose-card:nth-child(3) {
+  border-left-color: #ECE42C;
+}
+
+.purpose-card:nth-child(3) .purpose-icon {
+  color: #17432F;
+  background: #ECE42C;
+}
+
 .purpose-card h3 {
   margin: 0 0 0.5rem;
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
@@ -970,6 +980,156 @@ main {
   border-radius: 50%;
 }
 
+/* ----- Shared: short paragraph under a .section-title ----- */
+.section-intro {
+  max-width: 65ch;
+  margin: -0.5rem 0 1.25rem;
+}
+
+/* ----- Programmes: fees tables (additions) ----- */
+
+/* Stacked on phones; side by side from 48em */
+.fees-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* For short two-column tables that look stretched at full width */
+.table-narrow {
+  max-width: 28rem;
+}
+
+/* Amount columns right-aligned so digits line up */
+.fees-table td {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.fees-table thead th:not(:first-child) {
+  text-align: right;
+}
+
+/* Group label row inside a tbody (e.g. "Uniform"). Overrides the
+   zebra striping, which would otherwise colour it by position. */
+.fees-table tbody tr.fees-group,
+.fees-table tbody tr.fees-group:hover {
+  background: #EAF1EC;
+}
+
+.fees-table .fees-group th {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #17432F;
+}
+
+/* Total row: double top rule, the accounting convention for a sum */
+.fees-table tfoot th,
+.fees-table tfoot td {
+  font-weight: 700;
+  color: #17432F;
+  background: #FFFBD1;
+  border-top: 0.1875rem double #17432F;
+  border-bottom: 0;
+}
+
+/* ----- Shared: list with a leading Font Awesome icon per item ----- */
+.icon-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.icon-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+/* Fixed-size icon box keeps text aligned whatever the glyph width */
+.icon-list i {
+  flex: 0 0 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.25rem;
+  color: #205B42;
+  background: #EAF1EC;
+  border-radius: 50%;
+}
+
+/* Grid variant: items as small cards */
+.icon-list-grid li {
+  padding: 1rem;
+  background: #FFFFFF;
+  border-left: 0.25rem solid #ECE42C;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.08);
+}
+
+/* ----- Programmes: collapsible requirement groups -----
+   Native <details>/<summary>: no JavaScript. The default
+   disclosure triangle is hidden and replaced by a +/- drawn
+   in summary::after, which switches on the [open] attribute. */
+.req-group {
+  margin-bottom: 0.75rem;
+  background: #F7F8F5;
+  border: 0.0625rem solid #D5DDD7;
+  border-radius: 0.5rem;
+}
+
+.req-group summary {
+  position: relative;
+  padding: 1rem 3rem 1rem 1rem;   /* right padding clears the +/- */
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: #205B42;
+  cursor: pointer;
+  list-style: none;               /* Firefox, Chrome: hide triangle */
+}
+
+.req-group summary::-webkit-details-marker {
+  display: none;                  /* Safari: hide triangle */
+}
+
+.req-group summary::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #DA3C2F;
+}
+
+.req-group[open] summary::after {
+  content: "\2212";               /* minus sign */
+}
+
+.req-group summary:hover,
+.req-group summary:focus-visible {
+  color: #DA3C2F;
+}
+
+.req-group summary:focus-visible {
+  outline: 0.1875rem solid #ECE42C;
+  outline-offset: 0.125rem;
+}
+
+.req-group[open] summary {
+  border-bottom: 0.0625rem solid #D5DDD7;
+}
+
+.req-group .checklist {
+  padding: 0.25rem 1rem 0.5rem;
+}
+
 /* ==========================================================
    FOOTER
    ========================================================== */
@@ -1245,6 +1405,27 @@ main {
   }
 
   .programme-grid .card {
+    flex: 0 0 calc(50% - 0.5rem);
+  }
+
+  /* Programmes: O-level and A-level fee tables side by side */
+  .fees-grid {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .fees-grid .table-wrap {
+    flex: 1;
+  }
+
+  /* Programmes: rules as a two-column grid of cards */
+  .icon-list-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .icon-list-grid li {
     flex: 0 0 calc(50% - 0.5rem);
   }
 }
