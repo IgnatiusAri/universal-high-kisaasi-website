@@ -732,6 +732,106 @@ main {
   text-align: right;
 }
 
+/* ----- About: student life -----
+   Dark green band so the section stands out between the light
+   story and vision sections. Two soft radial "glows" are layered
+   over the gradient for depth; they are decoration only. */
+.student-life {
+  color: #FFFFFF;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(236, 228, 44, 0.14), transparent 40%),
+    radial-gradient(circle at 90% 85%, rgba(218, 60, 47, 0.18), transparent 45%),
+    linear-gradient(135deg, #205B42, #17432F);
+  border-top: 0.25rem solid #ECE42C;
+  border-bottom: 0.25rem solid #ECE42C;
+}
+
+/* Light text on the dark band; overrides the green .section-title */
+.student-life .section-title {
+  color: #ECE42C;
+}
+
+.student-life .section-intro {
+  color: #EAF1EC;
+}
+
+/* Tiles: 1 column on phones, 2 from 48em, 3 from 64em.
+   Widths are calc()'d against the 1rem gap. */
+.life-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Translucent "glass" tiles: the band's colours show through */
+.life-tile {
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.life-tile:hover {
+  transform: translateY(-0.25rem);
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.3);
+}
+
+.life-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.4rem;
+  color: #17432F;
+  background: #ECE42C;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.375rem rgba(236, 228, 44, 0.2);   /* halo ring */
+  transition: transform 0.2s ease;
+}
+
+/* Icon tilts on hover for a little life */
+.life-tile:hover .life-icon {
+  transform: rotate(-10deg) scale(1.08);
+}
+
+/* Every other tile uses red, so the grid isn't one flat colour */
+.life-tile:nth-child(even) .life-icon {
+  color: #FFFFFF;
+  background: #DA3C2F;
+  box-shadow: 0 0 0 0.375rem rgba(218, 60, 47, 0.25);
+}
+
+.life-tile h3 {
+  margin: 0 0 0.375rem;
+  font-size: 1.15rem;
+  color: #FFFFFF;
+}
+
+.life-tile p {
+  margin: 0;
+  color: #EAF1EC;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .life-tile,
+  .life-icon {
+    transition: none;
+  }
+
+  .life-tile:hover,
+  .life-tile:hover .life-icon {
+    transform: none;
+  }
+}
+
 /* ----- About: vision and mission ----- */
 
 .purpose-grid {
@@ -1930,6 +2030,16 @@ main {
     flex: 0 0 45%;
   }
 
+  /* About: student life tiles, 2 columns */
+  .life-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .life-tile {
+    flex: 0 0 calc(50% - 0.5rem);
+  }
+
   /* Contact: reach-us cards 2 x 2 */
   .contact-grid {
     flex-direction: row;
@@ -1989,6 +2099,11 @@ main {
   /* Programmes: all four cards in one row */
   .programme-grid .card {
     flex-basis: calc(25% - 0.75rem);
+  }
+
+  /* About: student life tiles, 3 columns (two rows of three) */
+  .life-tile {
+    flex-basis: calc(33.333% - 0.667rem);
   }
 
   /* Contact: reach-us cards in one row */

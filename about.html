@@ -128,7 +128,74 @@
     </div>
   </section>
 
-  <!-- 3. Vision, mission and commitment
+  <!-- 3. Student life
+       id="student-life" is the target of the home page "Student life"
+       card. Position follows the About wireframe (after the story).
+       Facts come from the admission forms: daily routine (sports,
+       worship, entertainment) and school rules (prefects,
+       self-reliance). TODO: list the school's clubs. -->
+  <section class="section student-life" id="student-life">
+    <div class="container">
+      <h2 class="section-title">Student life</h2>
+      <p class="section-intro">Life at Universal High is about more than
+         lessons. Every week has time for sport, faith, responsibility
+         and fun.</p>
+
+      <ul class="life-grid">
+        <li class="life-tile">
+          <span class="life-icon" aria-hidden="true">
+            <i class="fa-solid fa-futbol"></i>
+          </span>
+          <h3>Sports</h3>
+          <p>Sports every weekday from 4:40 pm, and a compulsory
+             Saturday morning jog to start the weekend.</p>
+        </li>
+        <li class="life-tile">
+          <span class="life-icon" aria-hidden="true">
+            <i class="fa-solid fa-people-group"></i>
+          </span>
+          <h3>Clubs</h3>
+          <p>[Names of the school's clubs and societies, for example
+             debate, science or music.]</p>
+        </li>
+        <li class="life-tile">
+          <span class="life-icon" aria-hidden="true">
+            <i class="fa-solid fa-star"></i>
+          </span>
+          <h3>Leadership</h3>
+          <p>Prefects help lead the school, and every student is
+             trusted to grow into a leader who transforms society.</p>
+        </li>
+        <li class="life-tile">
+          <span class="life-icon" aria-hidden="true">
+            <i class="fa-solid fa-place-of-worship"></i>
+          </span>
+          <h3>Worship</h3>
+          <p>Services for Christian students on Thursdays and Sundays,
+             and Friday prayers for Muslim students.</p>
+        </li>
+        <li class="life-tile">
+          <span class="life-icon" aria-hidden="true">
+            <i class="fa-solid fa-seedling"></i>
+          </span>
+          <h3>Self-reliance</h3>
+          <p>Students care for their classrooms, dormitories and
+             compound, and take part in projects like the school
+             gardens.</p>
+        </li>
+        <li class="life-tile">
+          <span class="life-icon" aria-hidden="true">
+            <i class="fa-solid fa-music"></i>
+          </span>
+          <h3>Entertainment</h3>
+          <p>Saturday and Sunday evenings are set aside for
+             entertainment and time with friends.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. Vision, mission and commitment
        Official wording, copied verbatim from the school's admission
        forms; do not paraphrase. The index.html intro summarises it.
        Card colours are set by position (:nth-child) in style.css. -->
@@ -173,7 +240,7 @@
     </div>
   </section>
 
-  <!-- 4. Our values
+  <!-- 5. Our values
        Must match the .values list in index.html.
        Icons are decorative (aria-hidden); the h3 carries the meaning.
        Bottom-border colours cycle every 3 items via :nth-child, so
@@ -223,11 +290,10 @@
   </section>
 
   <!-- TODO: remaining sections
-       5. Head teacher introduction with photo
-       6. Student life: must have id="student-life" (target of the
-          home page "Student life" card)
-       7. Alumni
-       8. Call to action (reuse .admissions-band from index.html) -->
+       - Why choose us (wireframe, after the story)
+       - Leadership: head teacher, deputy, dean, with photos (wireframe)
+       - Alumni
+       - Call to action (reuse .admissions-band from index.html) -->
 
 </main>
 
